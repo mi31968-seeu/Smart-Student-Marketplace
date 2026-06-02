@@ -62,7 +62,7 @@ smart-student-marketplace/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/smart-student-marketplace.git
+git clone https://github.com/mi31968-seeu/smart-student-marketplace.git
 ```
 
 ### 2. Open the project folder

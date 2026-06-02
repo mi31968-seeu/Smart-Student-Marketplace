@@ -110,14 +110,14 @@ The unit tests are located in the `tests/` folder. They check important parts of
 
 The project was developed by both team members.
 
-Mustafa Ismaili worked mainly on:
+Mustafa Ismaili worked mostly on:
 
 - Backend development
 - API functionality
 - Database logic
 - Unit testing
 
-Amra Demiri worked mainly on:
+Amra Demiri worked mostly on:
 
 - Frontend design
 - User interface

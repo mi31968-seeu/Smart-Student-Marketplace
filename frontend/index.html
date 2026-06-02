@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Student Marketplace & Service Platform</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🎓</span>
+                <span>StudentMarket</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+            <a href="#post-service" class="nav-button">Post Service</a>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <p class="badge">Software Engineering Project</p>
+                <h1>Smart Student Marketplace & Service Platform</h1>
+                <p class="hero-text">
+                    A trusted university platform where students can find tutoring, sell notes,
+                    rent items, offer services, communicate safely, and leave reviews.
+                </p>
+                <div class="hero-actions">
+                    <a href="#services" class="primary-button">Explore Services</a>
+                    <a href="#post-service" class="secondary-button">Create a Post</a>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <strong>5+</strong>
+                        <span>Main Features</span>
+                    </div>
+                    <div>
+                        <strong>2</strong>
+                        <span>Team Members</span>
+                    </div>
+                    <div>
+                        <strong>70h</strong>
+                        <span>Planned Work</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>Find a Service</h3>
+                <div class="search-box">
+                    <input id="searchInput" type="text" placeholder="Search tutoring, notes, books..." />
+                    <button onclick="filterServices()">Search</button>
+                </div>
+                <div class="quick-tags">
+                    <button onclick="setSearch('Tutoring')">Tutoring</button>
+                    <button onclick="setSearch('Notes')">Notes</button>
+                    <button onclick="setSearch('Rent')">Rent</button>
+                </div>
+                <p class="small-note">Search results are shown in the services section below.</p>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section id="features" class="section">
+            <div class="section-title">
+                <p>Project Features</p>
+                <h2>Built for student needs</h2>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <span>🔐</span>
+                    <h3>User Authentication</h3>
+                    <p>Students can register and log in before posting or contacting others.</p>
+                </article>
+                <article class="feature-card">
+                    <span>📌</span>
+                    <h3>Service Posting</h3>
+                    <p>Users can create posts for tutoring, notes, item rental, and student services.</p>
+                </article>
+                <article class="feature-card">
+                    <span>🔎</span>
+                    <h3>Search & Filtering</h3>
+                    <p>Students can easily search by title, category, price, and location.</p>
+                </article>
+                <article class="feature-card">
+                    <span>💬</span>
+                    <h3>Messaging</h3>
+                    <p>Students can communicate directly about services and availability.</p>
+                </article>
+                <article class="feature-card">
+                    <span>⭐</span>
+                    <h3>Review System</h3>
+                    <p>Reviews help build trust and improve the quality of the platform.</p>
+                </article>
+                <article class="feature-card">
+                    <span>📊</span>
+                    <h3>Database Design</h3>
+                    <p>Backend stores users, posts, messages, and reviews in an organized structure.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="services" class="section services-section">
+            <div class="section-title">
+                <p>Marketplace</p>
+                <h2>Available student services</h2>
+            </div>
+            <div id="serviceList" class="service-grid"></div>
+            <p id="emptyMessage" class="empty-message">No services found. Try another keyword.</p>
+        </section>
+
+        <section id="post-service" class="section split-section">
+            <div>
+                <p class="section-label">Create Post</p>
+                <h2>Post a new student service</h2>
+                <p class="section-description">
+                    This form demonstrates how users would add services to the platform.
+                    It works on the frontend as a project prototype and can be connected to the backend API.
+                </p>
+            </div>
+            <form id="serviceForm" class="post-form">
+                <label>
+                    Service Title
+                    <input id="title" type="text" placeholder="Example: Math tutoring" required />
+                </label>
+                <label>
+                    Category
+                    <select id="category" required>
+                        <option value="Tutoring">Tutoring</option>
+                        <option value="Notes">Notes</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </label>
+                <label>
+                    Price
+                    <input id="price" type="text" placeholder="Example: 500 MKD" required />
+                </label>
+                <label>
+                    Description
+                    <textarea id="description" placeholder="Describe the service..." required></textarea>
+                </label>
+                <button type="submit" class="primary-button full-width">Add Service</button>
+            </form>
+        </section>
+
+        <section id="how-it-works" class="section">
+            <div class="section-title">
+                <p>Process</p>
+                <h2>How the platform works</h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <strong>1</strong>
+                    <h3>Register</h3>
+                    <p>Create a student account and log in securely.</p>
+                </div>
+                <div class="step">
+                    <strong>2</strong>
+                    <h3>Post or Search</h3>
+                    <p>Create your own service post or search for what you need.</p>
+                </div>
+                <div class="step">
+                    <strong>3</strong>
+                    <h3>Message</h3>
+                    <p>Contact another student and agree on details.</p>
+                </div>
+                <div class="step">
+                    <strong>4</strong>
+                    <h3>Review</h3>
+                    <p>Leave a rating to help other students trust the service.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="section team-section">
+            <div class="section-title">
+                <p>Team Members</p>
+                <h2>Project responsibilities</h2>
+            </div>
+            <div class="team-grid">
+                <article class="team-card">
+                    <h3>Mustafa Ismaili</h3>
+                    <p>Backend, API, Database, Testing</p>
+                </article>
+                <article class="team-card">
+                    <h3>Amra Demiri</h3>
+                    <p>Frontend, UI/UX, Integration, Documentation</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Smart Student Marketplace & Service Platform</p>
+        <p>Software Engineering Project | SEEU</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

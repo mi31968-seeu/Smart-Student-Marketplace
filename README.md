@@ -1,33 +1,26 @@
 # Smart Student Marketplace & Service Platform
 
+## Project Overview
+
+Smart Student Marketplace & Service Platform is a web application created by Mustafa Ismaili and Amra Demiri. The purpose of the platform is to help university students find and offer trusted student services in one organized place.
+
+Students can use the platform to post services, search for available offers, contact other students, and leave reviews. The project is focused on making student services easier to find compared to unstructured social media posts or group chats.
+
 ## Team Members
 
-| Full Name | Student ID | Email | Main Responsibilities |
-|---|---:|---|---|
-| Mustafa Ismaili | 131968 | mi31968@seeu.edu.mk | Backend, API, Database, Testing |
-| Amra Demiri | 131969 | ad31969@seeu.edu.mk | Frontend, UI/UX, Integration, Documentation |
-
-## Project Description
-
-Smart Student Marketplace & Service Platform is a web application designed for university students. Students can register, log in, post services or items, search listings, send messages, and leave reviews. The goal is to create a more structured and trusted alternative to unorganized social media posts.
+- Mustafa Ismaili
+- Amra Demiri
 
 ## Main Features
 
 - User registration and login
-- Service/item posting
-- Search and category filtering
+- Service posting
+- Search and filtering for services
 - Messaging between students
 - Review and rating system
-- Unit tests for the main backend logic
-
-## Technologies Used
-
-- Python 3
-- Flask
-- SQLite
-- Pytest
-- HTML, CSS, JavaScript
-- GitHub for version control
+- Simple frontend interface
+- Backend API for managing users, services, and reviews
+- Unit tests for important functionality
 
 ## Project Structure
 
@@ -38,17 +31,31 @@ smart-student-marketplace/
 │   ├── database.py
 │   ├── models.py
 │   └── requirements.txt
+│
 ├── frontend/
 │   ├── index.html
 │   ├── styles.css
 │   └── script.js
+│
 ├── tests/
 │   └── test_app.py
+│
 ├── docs/
 │   └── Project Proposal.pdf
-├── .gitignore
-└── README.md
+│
+├── README.md
+└── .gitignore
 ```
+
+## Technologies Used
+
+- Python
+- Flask
+- HTML
+- CSS
+- JavaScript
+- Pytest
+- GitHub
 
 ## Setup Instructions
 
@@ -56,80 +63,67 @@ smart-student-marketplace/
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/smart-student-marketplace.git
+```
+
+### 2. Open the project folder
+
+```bash
 cd smart-student-marketplace
 ```
 
-### 2. Create a virtual environment
+### 3. Install backend dependencies
 
 ```bash
-python -m venv venv
+cd backend
+pip install -r requirements.txt
 ```
 
-### 3. Activate the virtual environment
-
-Windows:
+### 4. Run the backend
 
 ```bash
-venv\Scripts\activate
+python app.py
 ```
 
-macOS/Linux:
+The backend will start locally and provide the API for the project.
 
-```bash
-source venv/bin/activate
-```
+### 5. Open the frontend
 
-### 4. Install backend dependencies
-
-```bash
-pip install -r backend/requirements.txt
-```
-
-### 5. Run the backend
-
-```bash
-python backend/app.py
-```
-
-The backend will run on:
-
-```text
-http://127.0.0.1:5000
-```
-
-### 6. Open the frontend
-
-Open this file in your browser:
+Open the file below in a browser:
 
 ```text
 frontend/index.html
 ```
 
+The frontend can be opened directly in the browser and used to view the project interface.
+
 ## Running Unit Tests
 
-Install dependencies first, then run:
+From the main project folder, run:
 
 ```bash
 pytest
 ```
 
-The tests check meaningful functionality such as registration, login, service creation, search, messaging, and reviews.
+The unit tests are located in the `tests/` folder. They check important parts of the project such as user handling, service posting, searching, and reviews.
 
-## Version Control Notes
+## Contribution
 
-This repository should show regular commits from both team members. Recommended commit examples:
+The project was developed by both team members.
 
-```text
-Initial project setup
-Add backend database models
-Implement authentication API
-Add service posting functionality
-Create frontend pages
-Add search feature
-Add unit tests
-Update README instructions
-```
+Mustafa Ismaili worked mainly on:
 
-## Repository Submission
+- Backend development
+- API functionality
+- Database logic
+- Unit testing
 
-Submit the public GitHub repository link or add the professor as a collaborator.
+Amra Demiri worked mainly on:
+
+- Frontend design
+- User interface
+- Integration
+- Documentation
+
+## Notes
+
+This project demonstrates a simple full-stack software solution with organized source code, documentation, and testing. It uses GitHub for version control and project sharing.

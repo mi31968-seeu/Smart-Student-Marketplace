@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Student Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <div class="brand-icon">S</div>
+        <div>
+          <strong>StudentMarket</strong>
+          <span>Campus Services</span>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#post">Post Service</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#team">Team</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn btn-light" onclick="openAuth('login')">Login</button>
+        <button class="btn btn-dark" onclick="openAuth('register')">Register</button>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Smart Student Marketplace</p>
+        <h1>Find tutoring, notes, rentals, and student help in one trusted place.</h1>
+        <p class="hero-description">
+          A student-focused platform where users can create an account, post services,
+          search offers, view ratings, and communicate with other students.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-dark">Browse Services</a>
+          <a href="#post" class="btn btn-outline">Post a Service</a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong id="userCount">0</strong>
+            <span>Students</span>
+          </div>
+          <div>
+            <strong id="serviceCount">0</strong>
+            <span>Services</span>
+          </div>
+          <div>
+            <strong>4.6</strong>
+            <span>Avg Rating</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="floating-card top-card">
+          <span class="dot purple"></span>
+          Java tutoring available today
+        </div>
+        <div class="phone-preview">
+          <div class="phone-top"></div>
+          <div class="phone-search">Search student services...</div>
+          <div class="mini-service">
+            <span>📘</span>
+            <div>
+              <strong>Programming Notes</strong>
+              <p>5 EUR · Amra Demiri</p>
+            </div>
+          </div>
+          <div class="mini-service">
+            <span>🎓</span>
+            <div>
+              <strong>Math Tutoring</strong>
+              <p>10 EUR/hour · Mustafa Ismaili</p>
+            </div>
+          </div>
+          <div class="mini-service">
+            <span>💻</span>
+            <div>
+              <strong>Laptop Stand Rental</strong>
+              <p>2 EUR/day · Student User</p>
+            </div>
+          </div>
+        </div>
+        <div class="floating-card bottom-card">
+          <span class="dot blue"></span>
+          Review system helps build trust
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section categories">
+      <div class="section-title">
+        <p class="eyebrow">Categories</p>
+        <h2>What students can find</h2>
+      </div>
+
+      <div class="category-grid">
+        <div class="category-card">
+          <div class="category-icon">🎓</div>
+          <h3>Tutoring</h3>
+          <p>Find students who can help with exams, programming, math, and assignments.</p>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">📚</div>
+          <h3>Notes</h3>
+          <p>Buy or sell organized notes, summaries, and study materials.</p>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">🔄</div>
+          <h3>Renting</h3>
+          <p>Rent useful student items such as laptops, stands, calculators, or books.</p>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">💬</div>
+          <h3>Student Help</h3>
+          <p>Connect with other students for small campus-related services.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="account" class="section account-strip">
+      <div>
+        <p class="eyebrow">Account Demo</p>
+        <h2>Register, login, and post as a student</h2>
+        <p id="currentUserText">No student is currently logged in.</p>
+      </div>
+
+      <div class="account-actions">
+        <button class="btn btn-light" onclick="openAuth('login')">Login</button>
+        <button class="btn btn-dark" onclick="openAuth('register')">Create Account</button>
+        <button class="btn btn-danger" onclick="logoutStudent()">Logout</button>
+      </div>
+    </section>
+
+    <section id="services" class="section marketplace">
+      <div class="section-title row-title">
+        <div>
+          <p class="eyebrow">Marketplace</p>
+          <h2>Available student services</h2>
+        </div>
+        <div class="filters">
+          <input id="searchInput" type="text" placeholder="Search by title, category, owner..." oninput="renderServices()">
+          <select id="categoryFilter" onchange="renderServices()">
+            <option value="All">All</option>
+            <option value="Tutoring">Tutoring</option>
+            <option value="Notes">Notes</option>
+            <option value="Renting">Renting</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="serviceList" class="services-grid"></div>
+    </section>
+
+    <section id="post" class="section post-section">
+      <div class="post-info">
+        <p class="eyebrow">Post Service</p>
+        <h2>Add a new student service</h2>
+        <p>
+          Logged-in students can add new service offers. This part allows a logged-in student to add a new service offer.
+        </p>
+        <ul>
+          <li>Requires logged-in student</li>
+          <li>Saves service in browser storage</li>
+          <li>Appears immediately in service search</li>
+        </ul>
+      </div>
+
+      <form class="post-form" onsubmit="addService(event)">
+        <label>Service Title</label>
+        <input id="serviceTitle" type="text" placeholder="Example: Database Tutoring">
+
+        <label>Category</label>
+        <select id="serviceCategory">
+          <option value="">Choose category</option>
+          <option value="Tutoring">Tutoring</option>
+          <option value="Notes">Notes</option>
+          <option value="Renting">Renting</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label>Price</label>
+        <input id="servicePrice" type="text" placeholder="Example: 10 EUR/hour">
+
+        <label>Contact</label>
+        <input id="serviceContact" type="text" placeholder="Email or phone">
+
+        <label>Description</label>
+        <textarea id="serviceDescription" placeholder="Describe the service..."></textarea>
+
+        <button class="btn btn-dark full-btn" type="submit">Add Service</button>
+        <p id="serviceMessage" class="form-message"></p>
+      </form>
+    </section>
+
+    <section id="reviews" class="section reviews">
+      <div class="section-title">
+        <p class="eyebrow">Trust System</p>
+        <h2>Reviews and ratings</h2>
+      </div>
+
+      <div id="reviewList" class="review-grid"></div>
+    </section>
+
+    <section id="team" class="section team">
+      <div class="section-title">
+        <p class="eyebrow">Team</p>
+        <h2>Project contributors</h2>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="avatar">MI</div>
+          <h3>Mustafa Ismaili</h3>
+          <p>Backend, API, database logic, and testing.</p>
+        </div>
+        <div class="team-card">
+          <div class="avatar">AD</div>
+          <h3>Amra Demiri</h3>
+          <p>Frontend, UI/UX, integration, and documentation.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Smart Student Marketplace</strong>
+    <span>Student Project</span>
+  </footer>
+
+  <div id="authModal" class="modal-overlay">
+    <div class="auth-modal">
+      <button class="close-btn" onclick="closeAuth()">×</button>
+
+      <div id="loginForm">
+        <h2>Student Login</h2>
+        <p>Use the demo account or register a new student account.</p>
+
+        <label>Email</label>
+        <input id="loginEmail" type="email" placeholder="student@example.com">
+
+        <label>Password</label>
+        <input id="loginPassword" type="password" placeholder="12345">
+
+        <button class="btn btn-dark full-btn" onclick="loginStudent()">Login</button>
+        <p class="hint">Example account: student@example.com / 12345</p>
+      </div>
+
+      <div id="registerForm" style="display:none;">
+        <h2>Create Student Account</h2>
+        <p>Register as a student to post a service.</p>
+
+        <label>Full Name</label>
+        <input id="registerName" type="text" placeholder="Mustafa Ismaili">
+
+        <label>Email</label>
+        <input id="registerEmail" type="email" placeholder="student@example.com">
+
+        <label>Password</label>
+        <input id="registerPassword" type="password" placeholder="Create password">
+
+        <button class="btn btn-dark full-btn" onclick="registerStudent()">Register</button>
+      </div>
+
+      <p id="authMessage" class="form-message"></p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -57,6 +57,10 @@ smart-student-marketplace/
 - Pytest
 - GitHub
 
+## Frontend Overview
+
+The frontend contains the main user interface of the platform. It includes the homepage, service cards, search section, and add-service form.
+
 ## Setup Instructions
 
 ### 1. Clone the repository
